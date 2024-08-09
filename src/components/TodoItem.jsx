@@ -1,8 +1,10 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 const TodoItem = ({ todo, setRefresh }) => {
   const updateTodo = () => {
     todo.done = !todo.done;
 
-    fetch("http://localhost:8000/todos/" + todo.id, {
+    fetch(API_URL + "/todos/" + todo.id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -15,7 +17,7 @@ const TodoItem = ({ todo, setRefresh }) => {
   };
 
   const deleteTodo = () => {
-    fetch("http://localhost:8000/todos/" + todo.id, {
+    fetch(API_URL + "/todos/" + todo.id, {
       method: "DELETE",
     }).then(() => {
       console.log("todo deleted.");

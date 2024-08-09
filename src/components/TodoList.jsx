@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const TodoList = ({ isRefresh, setRefresh }) => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     // memanggil API untuk mengambil data todos
     if (isRefresh) {
-      fetch("http://localhost:8000/todos")
+      fetch(API_URL + "/todos")
         .then((res) => {
           return res.json();
         })

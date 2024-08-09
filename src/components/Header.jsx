@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Header = ({ setRefresh }) => {
   const [title, setTitle] = useState("");
 
@@ -7,7 +9,7 @@ const Header = ({ setRefresh }) => {
   const addTodo = () => {
     const newTodo = { title, done: false };
 
-    fetch("http://localhost:8000/todos", {
+    fetch(API_URL + "/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

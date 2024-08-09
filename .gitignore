@@ -1,3 +1,8 @@
+data/
+data/db.json
+db.json
+data/*.json
+
 # Logs
 logs
 *.log
